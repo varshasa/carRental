@@ -12,14 +12,14 @@ import like from "../assets/like.png"
 const Sidebar: React.FC = () => {
   return (
     <>
-      <div className="m-5 flex flex-col gap-5 align-center items-center">
+      <div className="m-5 flex flex-col gap-5 align-center items-center cursor-pointer">
         <div className="px-2 "><img src={app}/></div>
         <div className="px-2 "><img src={pickupCar}/></div>
         <div className="px-2 "><img src={calendar}/></div>
         <div className="px-2 "><img src={like}/></div>
         <div className="px-2 "><img src={box}/></div>
       </div>
-      <div className="m-5 flex flex-col gap-5 align-center items-center">
+      <div className="m-5 flex flex-col gap-5 align-center items-center cursor-pointer">
         <div className="px-2 "><img src={bell}/></div>
         <div className="px-2 "><img src={help}/></div>
         <div className="px-2 "><img src={settings}/></div>
