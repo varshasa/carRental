@@ -3,12 +3,12 @@ import React from "react";
 interface CardProps {
   make: string;
   model: string;
-  price: string;
+  price: number;
   image: string;
   
 }
 
-const Card: React.FC<CardProps> = ({ make, model, price, image, isNew }) => {
+const Card: React.FC<CardProps> = ({ make, model, price, image}) => {
   return (
     <div className="flex flex-col border rounded-lg shadow-md bg-white dark:bg-gray-800 p-3 h-56">
      

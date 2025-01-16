@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import {useDispatch} from 'react-redux' ;
 import Card from "./Card.tsx";
-
+import { selectCar} from "../redux/actions.tsx"; 
 
   const cars = [
   {
@@ -607,11 +608,19 @@ import Card from "./Card.tsx";
 
 
 const CarList: React.FC = () => {
-  
+    const dispatch = useDispatch();  
+    const handleSelectCar = (car:any) => {
+      dispatch(selectCar(car));
+    };
+
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 p-6 overflow-y-scroll max-h-[calc(90vh-3rem)] w-full">
       {cars.map((car) => (
-        <Card key={car.id} {...car} />
+       <div key={car.id} onClick={() => handleSelectCar(car)}>
+          <Card
+            {...car}
+          />
+        </div>
       ))}
     </div>
   );
