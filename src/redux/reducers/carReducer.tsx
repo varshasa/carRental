@@ -1,13 +1,21 @@
-import { SELECT_CAR } from "../actions.tsx";
+// reducer.ts
+import { Car, CarActionTypes, SELECT_CAR} from '../types.tsx';
 
-const initialState = {
-  selectedCar: null,
+interface CarState {
+  selectedCar: Car | null;
+}
+
+const initialState: CarState = {
+  selectedCar: null, // Default to null
 };
 
-const carReducer = (state = initialState, action: any) => {
+const carReducer = (state = initialState, action: CarActionTypes): CarState => {
   switch (action.type) {
-    case 'SELECT_CAR':
-      return { ...state, selectedCar: action.payload };
+    case SELECT_CAR:
+      return {
+        ...state,
+        selectedCar: action.payload, // The car will be added here
+      };
     default:
       return state;
   }

@@ -5,14 +5,14 @@ interface CardProps {
   model: string;
   price: number;
   image: string;
-  
+  onClick?: () => void;
 }
 
-const Card: React.FC<CardProps> = ({ make, model, price, image}) => {
+const Card: React.FC<CardProps> = ({ make, model, price, image ,onClick}) => {
   return (
     <div className="flex flex-col border rounded-lg shadow-md bg-white dark:bg-gray-800 p-3 h-56">
      
-      <div className="w-full h-[75%] flex-shrink-0">
+      <div className="w-full h-[75%] flex-shrink-0"  onClick={onClick}>
         <img src={image} alt={make} className="w-full h-full object-cover rounded-md" />
       </div>
 

@@ -1,16 +1,17 @@
-
+// types.ts
 export interface Car {
-    id: number;
-    make: string;
-    model: string;
-    year: number;
-    price: number;
-    description: string;
-  }
-  
-  export interface CarState {
-    cars: Car[];
-    selectedCar: Car | null;
-    filter: Record<string, any>;
-  }
-  
+  make: string;
+  model: string;
+  price: string;
+  image: string;
+  isNew: boolean;
+}
+
+export const SELECT_CAR = 'SELECT_CAR';
+
+export interface SelectCarAction {
+  type: typeof SELECT_CAR;
+  payload: Car; // The payload should be the car object
+}
+
+export type CarActionTypes = SelectCarAction; // Union type if you have other actions

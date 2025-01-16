@@ -1,9 +1,7 @@
-import { createStore, combineReducers } from "redux";
-import carReducer from "./reducers/carReducer.tsx";
-
-const rootReducer = combineReducers({
-  car: carReducer, // This connects the carReducer to the state
-});
+// store.ts
+import { createStore } from 'redux';
+import rootReducer from './reducers/rootReducer.tsx';
 
 const store = createStore(rootReducer);
+
 export default store;

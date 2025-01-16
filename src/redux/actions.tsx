@@ -1,8 +1,7 @@
-export const SELECT_CAR = "SELECT_CAR";
+// actions.ts
+import { Car, SelectCarAction, SELECT_CAR } from './types.tsx';
 
-export const selectCar = (car: any) => {
-  return {
-    type: SELECT_CAR,
-    payload: car,
-  };
-};
+export const selectCar = (car: Car): SelectCarAction => ({
+  type: SELECT_CAR,
+  payload: car,
+});
