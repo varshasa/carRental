@@ -1,7 +1,13 @@
-import React from "react";
-import {useDispatch} from 'react-redux' ;
-import Card from "./Card.tsx";
-import { selectCar} from "../redux/actions.tsx"; 
+// import React from "react";
+// import {useDispatch} from 'react-redux' ;
+// import Card from "./Card.tsx";
+// import { selectCar} from "../redux/actions.tsx"; 
+
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { selectCar } from '../redux/carSlice.tsx';
+
+
 
   const cars = [
   {
@@ -607,19 +613,48 @@ import { selectCar} from "../redux/actions.tsx";
 ]
 
 
+// const CarList: React.FC = () => {
+//     const dispatch = useDispatch();  
+//     const handleSelectCar = (car:any) => {
+//       dispatch(selectCar(car));
+//     };
+
+//   return (
+//     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 p-6 overflow-y-scroll max-h-[calc(90vh-3rem)] w-full">
+//       {cars.map((car) => (
+//        <div key={car.id} onClick={() => handleSelectCar(car)}>
+//           <Card
+//             {...car}
+//           />
+//         </div>
+//       ))}
+//     </div>
+//   );
+// };
+
+// export default CarList;
+
+
+
 const CarList: React.FC = () => {
-    const dispatch = useDispatch();  
-    const handleSelectCar = (car:any) => {
-      dispatch(selectCar(car));
-    };
+  const dispatch = useDispatch();
+
+  const handleSelectCar = (car: any) => {
+    dispatch(selectCar(car));
+  };
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 p-6 overflow-y-scroll max-h-[calc(90vh-3rem)] w-full">
+    <div className="grid grid-cols-4 gap-4">
       {cars.map((car) => (
-       <div key={car.id} onClick={() => handleSelectCar(car)}>
-          <Card
-            {...car}
-          />
+        <div
+          key={car.id}
+          className="card border rounded p-4 cursor-pointer"
+          onClick={() => handleSelectCar(car)}
+        >
+          <img src={car.image} alt={`${car.make} ${car.model}`} className="w-full h-48 object-cover" />
+          <h3 className="text-lg font-bold">{car.make} {car.model}</h3>
+          <p>{car.year}</p>
+          <p>${car.price}</p>
         </div>
       ))}
     </div>

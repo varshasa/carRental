@@ -1,7 +1,13 @@
-// store.ts
-import { createStore } from 'redux';
-import rootReducer from './reducers/rootReducer.tsx';
+import { configureStore } from '@reduxjs/toolkit';
+import carReducer from './carSlice.tsx';
 
-const store = createStore(rootReducer);
+const store = configureStore({
+  reducer: {
+    car: carReducer,
+  },
+});
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
 
 export default store;
